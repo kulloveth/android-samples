@@ -1,10 +1,10 @@
-package com.kulloveth.contactlist
+package com.kulloveth.contactlist.data
 
 object ContactListHelper {
     private lateinit var contacts: List<Contact>
 
     fun setContactList(list: List<Contact>) {
-        this.contacts = list
+        contacts = list
     }
 
     fun getItemSize() = contacts.size
