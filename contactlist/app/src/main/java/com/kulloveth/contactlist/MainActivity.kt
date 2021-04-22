@@ -3,10 +3,10 @@ package com.kulloveth.contactlist
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.kulloveth.contactlist.databinding.ActivityMainBinding
@@ -14,6 +14,8 @@ import com.kulloveth.contactlist.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private var no =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,14 +42,26 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-
+             no = s.toString()
             }
 
         })
+
+        saveBtn.setOnClickListener {
+            val contact  = Contact(et.text.toString(),no)
+            val contacts = listOf(contact)
+            Log.d("cons",""+contacts)
+        }
+        // val adapter = ContactListAdapter(contacts)
+        //contactListHelper.getContactList()
         val alertDialog: AlertDialog = builder.create()
         binding.addFab.setOnClickListener {
             alertDialog.show()
         }
+
+
+
+
 
     }
 }
