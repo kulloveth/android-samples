@@ -5,10 +5,10 @@
 <table>
     <tr>
       <td>
-        <img src="scerenshot/items.png"/>
+        <img src="screenshot/items.png"/>
       </td>
       <td>
-         <img src="scerenshot/detail.png"/>
+         <img src="screenshot/detail.png"/>
       </td>
   </tr>
 </table>
