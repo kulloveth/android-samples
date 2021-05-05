@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kulloveth.cocktailapp.data.api.CocktailInfoModel
-import com.kulloveth.cocktailapp.data.api.Repository
+import com.kulloveth.cocktailapp.api.CocktailInfoModel
+import com.kulloveth.cocktailapp.api.Repository
 import kotlinx.coroutines.launch
 import java.lang.Exception
 

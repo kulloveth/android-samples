@@ -1,4 +1,4 @@
-package com.kulloveth.cocktailapp.data.api
+package com.kulloveth.cocktailapp.api
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -18,7 +18,10 @@ private val retrofit = Retrofit.Builder().addConverterFactory(MoshiConverterFact
 interface ApiService {
 
     @GET("1/filter.php")
-    suspend fun getDrinks(@Query("a") category:String):Drink
+    suspend fun getDrinks(@Query("a") category:String): DrinkResponse
+
+    @GET("1/lookup.php?i=11007")
+    suspend fun getDrinksDetail(@Query("i")id:String):DrinkDetailResponse
 }
 
 object Api {

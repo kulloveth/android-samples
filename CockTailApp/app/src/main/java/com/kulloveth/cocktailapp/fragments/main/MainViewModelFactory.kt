@@ -2,7 +2,7 @@ package com.kulloveth.cocktailapp.fragments.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.kulloveth.cocktailapp.data.api.Repository
+import com.kulloveth.cocktailapp.api.Repository
 import java.lang.IllegalArgumentException
 
 class MainViewModelFactory(private val repository: Repository):ViewModelProvider.Factory {
@@ -10,7 +10,7 @@ class MainViewModelFactory(private val repository: Repository):ViewModelProvider
         if (modelClass.isAssignableFrom(MainFragmentViewModel::class.java)){
             return MainFragmentViewModel(repository) as T
         }
-        throw IllegalArgumentException("UNKNOWN ")
+        throw IllegalArgumentException("UNKNOWN CLASS")
     }
 
 }
