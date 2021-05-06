@@ -13,7 +13,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.kulloveth.cocktailapp.R
 import com.kulloveth.cocktailapp.api.Api
-import com.kulloveth.cocktailapp.api.CocktailInfoModel
+import com.kulloveth.cocktailapp.api.Drink
 import com.kulloveth.cocktailapp.api.Repository
 import com.kulloveth.cocktailapp.databinding.FragmentMainBinding
 
@@ -21,8 +21,8 @@ import com.kulloveth.cocktailapp.databinding.FragmentMainBinding
 class MainFragment : Fragment() {
 
     private var binding: FragmentMainBinding? = null
-    private val drinks = mutableListOf<CocktailInfoModel>()
-    var cocktailInfoModel: CocktailInfoModel? = null
+    private val drinks = mutableListOf<Drink>()
+    var cocktailInfoModel: Drink? = null
 
 
     private val viewModel: MainFragmentViewModel by lazy {
@@ -64,6 +64,6 @@ class MainFragment : Fragment() {
     }
 
     companion object{
-        val ID_ARGS = MainFragment::class.java.simpleName + "Drink-id"
+        val ID_ARGS = MainFragment::class.java.simpleName + "id"
     }
 }

@@ -4,17 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.kulloveth.cocktailapp.api.CocktailInfoModel
+import com.kulloveth.cocktailapp.api.Drink
 import com.kulloveth.cocktailapp.databinding.ItemRvBinding
 
 class MainAdapter(
-    private val drinks: List<CocktailInfoModel>,
-    private val listener: (CocktailInfoModel) -> Unit
+    private val drinks: List<Drink>,
+    private val listener: (Drink) -> Unit
 ) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     inner class MainViewHolder(private val binding: ItemRvBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(cocktailInfoModel: CocktailInfoModel) {
+        fun bind(cocktailInfoModel: Drink) {
             binding.title.text = cocktailInfoModel.drinkName
             binding.thumbIv.load(cocktailInfoModel.thumbNail)
             binding.root.setOnClickListener{

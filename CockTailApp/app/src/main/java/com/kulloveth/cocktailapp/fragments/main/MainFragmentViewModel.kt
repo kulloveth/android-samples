@@ -5,16 +5,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kulloveth.cocktailapp.api.CocktailInfoModel
+import com.kulloveth.cocktailapp.api.Drink
 import com.kulloveth.cocktailapp.api.Repository
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class MainFragmentViewModel(private val repository: Repository) : ViewModel() {
 
-    private val _drinksLiveData = MutableLiveData<List<CocktailInfoModel>>()
+    private val _drinksLiveData = MutableLiveData<List<Drink>>()
 
-    val drinksLiveData: LiveData<List<CocktailInfoModel>>
+    val drinksLiveData: LiveData<List<Drink>>
         get() = _drinksLiveData
 
     init {

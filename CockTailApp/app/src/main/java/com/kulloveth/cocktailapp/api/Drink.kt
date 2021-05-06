@@ -2,7 +2,7 @@ package com.kulloveth.cocktailapp.api
 
 import com.squareup.moshi.Json
 
-data class CocktailInfoModel(
+data class Drink(
     @Json(name = "strDrink")
     val drinkName: String,
     @Json(name = "strDrinkThumb")
