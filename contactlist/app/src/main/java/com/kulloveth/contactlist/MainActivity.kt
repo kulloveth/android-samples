@@ -16,12 +16,16 @@ import com.kulloveth.contactlist.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    val adapter = ContactListAdapter()
-    private var no =""
+    private val adapter = ContactListAdapter()
+    private var no = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val extra = intent.getStringExtra(CategoryActivity.CATEGORY_ARGS)
+        if (extra != null) {
+            title = extra
+        }
         binding.contactsRv.adapter = adapter
         binding.contactsRv.addItemDecoration(
             DividerItemDecoration(
@@ -51,17 +55,17 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-             no = s.toString()
+                no = s.toString()
             }
 
         })
 
         saveBtn.setOnClickListener {
-            val contact  = Contact(et.text.toString(),no)
+            val contact = Contact(et.text.toString(), no)
             val contacts = mutableListOf(contact)
-            val lists:MutableList<Contact> = mutableListOf()
+            val lists: MutableList<Contact> = mutableListOf()
             lists.addAll(contacts)
-            Log.d("cons",""+contacts)
+            Log.d("cons", "" + contacts)
             adapter.setupList(contacts)
         }
 
