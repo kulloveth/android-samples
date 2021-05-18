@@ -1,4 +1,4 @@
-package com.kulloveth.contactlist
+package com.kulloveth.contactlist.contact
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -20,7 +20,7 @@ class ContactListAdapter:RecyclerView.Adapter<ContactListAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder { 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ContactItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 

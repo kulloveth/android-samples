@@ -1,4 +1,4 @@
-package com.kulloveth.contactlist
+package com.kulloveth.contactlist.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

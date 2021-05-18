@@ -1,9 +1,13 @@
-package com.kulloveth.contactlist
+package com.kulloveth.contactlist.category
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.kulloveth.contactlist.contact.ContactActivity
+import com.kulloveth.contactlist.data.db.DbAccessor
+import com.kulloveth.contactlist.data.db.User
 import com.kulloveth.contactlist.databinding.ActivityCategoryBinding
 
 class CategoryActivity : AppCompatActivity() {
@@ -14,12 +18,16 @@ class CategoryActivity : AppCompatActivity() {
         setContentView(binding?.root)
         title = "Contact Category"
         val adapter = CategoryRecyclerAdapter(Category.categories) { category ->
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ContactActivity::class.java)
             intent.putExtra(CATEGORY_ARGS, category)
             startActivity(intent)
         }
         binding?.categoryRv?.layoutManager = GridLayoutManager(this, 2)
         binding?.categoryRv?.adapter = adapter
+
+        //DbAccessor.db.userDao().insertUser(User("chidi","chidi@gmail.com","1234567"))
+       val user =  DbAccessor.db.userDao().fetchUser("chidi@gmail.com")
+        Log.d("info",""+user)
 
     }
 

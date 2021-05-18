@@ -1,4 +1,4 @@
-package com.kulloveth.contactlist
+package com.kulloveth.contactlist.contact
 
 import android.os.Bundle
 import android.text.Editable
@@ -11,16 +11,18 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import com.kulloveth.contactlist.databinding.ActivityMainBinding
+import com.kulloveth.contactlist.category.CategoryActivity
+import com.kulloveth.contactlist.R
+import com.kulloveth.contactlist.databinding.ActivityContactBinding
 
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class ContactActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityContactBinding
     private val adapter = ContactListAdapter()
     private var no = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val extra = intent.getStringExtra(CategoryActivity.CATEGORY_ARGS)
         if (extra != null) {
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         setUpDialog(binding)
     }
 
-    private fun setUpDialog(binding: ActivityMainBinding) {
+    private fun setUpDialog(binding: ActivityContactBinding) {
         val builder = AlertDialog.Builder(this)
         val inflater = this.layoutInflater
         val dialogView: View = inflater.inflate(R.layout.add_new_contact_layout, null)
