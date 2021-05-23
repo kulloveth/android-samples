@@ -12,4 +12,7 @@ interface UserDao {
 
     @Query("Select * from  users where `email-address` = :email ")
     fun fetchUser(email: String): User
+
+    @Query("Select * from  users")
+    fun fetchUser(): List<User>
 }
