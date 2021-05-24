@@ -25,10 +25,6 @@ class CategoryActivity : AppCompatActivity() {
         binding?.categoryRv?.layoutManager = GridLayoutManager(this, 2)
         binding?.categoryRv?.adapter = adapter
 
-        //DbAccessor.db.userDao().insertUser(User("chidi","chidi@gmail.com","1234567"))
-       val user =  DbAccessor.db.userDao().fetchUser("chidi@gmail.com")
-        Log.d("info",""+user)
-
     }
 
     companion object {

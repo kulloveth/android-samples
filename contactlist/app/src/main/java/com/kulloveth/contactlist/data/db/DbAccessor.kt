@@ -1,11 +1,9 @@
 package com.kulloveth.contactlist.data.db
 
-import androidx.room.Room
 import com.kulloveth.contactlist.App
+import com.kulloveth.contactlist.data.Repository
 
 object DbAccessor {
-    val db =
-        Room.databaseBuilder(App.applicationContext(), UserDatabase::class.java, "user-database")
-            .allowMainThreadQueries()
-            .build()
+
+
 }

@@ -1,13 +1,15 @@
 package com.kulloveth.contactlist.data
 
 import com.kulloveth.contactlist.data.db.User
+import com.kulloveth.contactlist.data.db.UserDao
 import com.kulloveth.contactlist.data.db.UserDatabase
+import kotlinx.coroutines.flow.Flow
 
-class Repository(private val db: UserDatabase) {
+class Repository(private val dao: UserDao) {
 
-    fun insertUser(user: User) = db.userDao().insertUser(user)
+    suspend fun insertUser(user: User) = dao.insertUser(user)
 
-    fun fetchUser(email: String) = db.userDao().fetchUser(email)
+     fun fetchUser(email: String) = dao.fetchUser(email)
 
-    fun fetchAllUsers(): List<User> = db.userDao().fetchUser()
+    fun fetchAllUsers():Flow<List<User>> = dao.fetchAllUser()
 }

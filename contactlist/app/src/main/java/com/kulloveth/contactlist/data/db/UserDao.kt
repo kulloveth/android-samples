@@ -1,18 +1,20 @@
 package com.kulloveth.contactlist.data.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
 
     @Insert
-    fun insertUser(user: User)
+    suspend fun insertUser(user: User)
 
     @Query("Select * from  users where `email-address` = :email ")
-    fun fetchUser(email: String): User
+    fun fetchUser(email: String): LiveData<User>
 
-    @Query("Select * from  users")
-    fun fetchUser(): List<User>
+    @Query("Select * from  users order by name asc")
+    fun fetchAllUser(): Flow<List<User>>
 }
